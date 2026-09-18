@@ -7,8 +7,7 @@
 
 @theme {
   --font-sans:
-    var(--font-barlow), var(--font-geist-sans), ui-sans-serif, system-ui,
-    sans-serif;
+    Arial, var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono:
     var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, monospace;
@@ -16,18 +15,17 @@
     var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace,
     SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-barlow:
-    var(--font-barlow), var(--font-geist-sans), ui-sans-serif, system-ui,
-    sans-serif;
+    Arial, var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-barlow), sans-serif;
+  --font-sans: Arial, var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   --font-pixel:
     var(--font-geist-pixel-square), var(--font-geist-mono), monospace;
-  --font-barlow: var(--font-barlow), sans-serif;
+  --font-barlow: Arial, var(--font-geist-sans), sans-serif;
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
