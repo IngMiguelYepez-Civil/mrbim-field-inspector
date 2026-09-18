@@ -1,3 +1,34 @@
+# MrBIM Field Inspector
+
+Mobile-first BIM inspection and model-review application for engineers, BIM
+coordinators, contractors, and site supervisors.
+
+> This project is under active development and is derived from Pascal Editor
+> under the MIT License. Original copyright and license notices are preserved.
+
+## Project owner and contact
+
+**Ing. Miguel Yépez**  
+Civil Engineer · BIM Manager · Digital Construction
+
+- Website: [MrBIM Digital Construction](https://mrbim-digital-construction.ing-miguel-yepez.chatgpt.site)
+- Email: [ing.miguel.yepez@gmail.com](mailto:ing.miguel.yepez@gmail.com)
+- LinkedIn: [linkedin.com/in/ing-miguel-yepez](https://www.linkedin.com/in/ing-miguel-yepez/)
+- Telegram: [@Ing_Miguel_Yepez](https://t.me/Ing_Miguel_Yepez)
+
+## Product direction
+
+The first release focuses on mobile model review, element properties,
+measurements, field issues, photographic evidence, offline persistence, and
+professional reporting. See:
+
+- [Product specification](docs/MRBIM_FIELD_INSPECTOR_PRODUCT_SPEC.md)
+- [Delivery roadmap](docs/MRBIM_DELIVERY_ROADMAP.md)
+
+---
+
+## Upstream foundation
+
 # Pascal Editor
 
 A 3D building editor built with React Three Fiber and WebGPU.
