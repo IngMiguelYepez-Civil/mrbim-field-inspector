@@ -1,0 +1,4 @@
+# Generated from the web-ifc dependency by scripts/copy-web-ifc-wasm.mjs.
+web-ifc.wasm
+web-ifc-mt.wasm
+web-ifc-node.wasm
