@@ -4,6 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "predev": "node scripts/copy-web-ifc-wasm.mjs",
+    "prebuild": "node scripts/copy-web-ifc-wasm.mjs",
+    "postinstall": "node scripts/copy-web-ifc-wasm.mjs",
     "dev": "dotenv -e ../../.env.local -- next dev --port 3002",
     "build": "dotenv -e ../../.env.local -- next build",
     "start": "next start",
