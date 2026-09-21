@@ -1,10 +1,11 @@
 'use client'
 
 import { Editor, ItemsPanel } from '@pascal-app/editor'
-import { Hammer, Layers, Package, Settings } from 'lucide-react'
+import { FileUp, Hammer, Layers, Package, Settings } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BuildTab } from '@/components/build-tab'
+import { ImportModelTab } from '@/components/import-model-tab'
 import {
   CommunityViewerToolbarLeft,
   CommunityViewerToolbarRight,
@@ -18,6 +19,14 @@ function EditorItemsPanel() {
 }
 
 const SIDEBAR_TABS = [
+  {
+    id: 'import',
+    label: 'Importar',
+    component: ImportModelTab,
+    mobileDefaultSnap: 0.65,
+    mobileIcon: <FileUp className="h-5 w-5" />,
+    icon: <FileUp className="h-8 w-8" />,
+  },
   {
     id: 'site',
     label: 'Scene',
@@ -92,7 +101,10 @@ export default function Home() {
       {PROJECT_ID === 'local-editor' && (
         <div className="pointer-events-none absolute top-[max(0.75rem,env(safe-area-inset-top))] left-1/2 z-40 w-[calc(100%-1rem)] max-w-xl -translate-x-1/2">
           <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-2xl border border-border/60 bg-background/90 px-3 py-2 text-center text-xs shadow-sm backdrop-blur sm:rounded-full sm:px-4 sm:py-1.5">
-            <strong className="text-foreground">MrBIM Field Inspector</strong>\n            <span className="text-muted-foreground">Modo local — las escenas aún no se sincronizan.</span>
+            <strong className="text-foreground">MrBIM Field Inspector</strong>
+            <span className="text-muted-foreground">
+              Modo local — las escenas aún no se sincronizan.
+            </span>
             <Link className="font-medium text-foreground hover:underline" href="/scenes">
               Abrir escenas
             </Link>

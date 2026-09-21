@@ -1,0 +1,35 @@
+{
+  "name": "@mrbim/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "prebuild": "node ../editor/scripts/copy-web-ifc-wasm.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:assets": "node scripts/generate-android-assets.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@pascal-app/core": "*",
+    "@pascal-app/editor": "*",
+    "@pascal-app/ifc-converter": "*",
+    "@pascal-app/nodes": "*",
+    "@pascal-app/viewer": "*",
+    "lucide-react": "^0.544.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "sharp": "^0.34.4",
+    "typescript": "6.0.3",
+    "vite": "^7.1.9"
+  }
+}

@@ -1,0 +1,64 @@
+name: MrBIM Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/mrbim-universal-import
+    paths:
+      - 'apps/mobile/**'
+      - 'apps/editor/components/**'
+      - 'apps/editor/lib/**'
+      - 'packages/**'
+      - '.github/workflows/mrbim-android-debug.yml'
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install dependencies
+        run: npm install --no-package-lock --ignore-scripts --legacy-peer-deps
+
+      - name: Build shared packages
+        run: |
+          npm run build -w @pascal-app/core
+          npm run build -w @pascal-app/viewer
+          npm run build -w @pascal-app/nodes
+          npm run build -w @pascal-app/ifc-converter
+          npx tsc --build packages/editor/tsconfig.json
+
+      - name: Build and sync mobile app
+        working-directory: apps/mobile
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          npm run build
+          npx cap sync android
+
+      - name: Build debug APK
+        working-directory: apps/mobile/android
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: MrBIM-Field-Inspector-debug
+          path: apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
